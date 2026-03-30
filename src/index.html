@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>⚙ Zahnrad-Simulation · KH-Rechner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="app">
+
+  <!-- HEADER -->
+  <div id="header">
+    <div class="logo">
+      <span class="logo-icon">⚙️</span>
+      <div>
+        <h1>Zahnrad-Simulation</h1>
+        <div class="sub">Kohlenhydrat-Rechner · 200 × 200 mm Druckbett</div>
+      </div>
+    </div>
+    <div class="ratio-display">
+      Übersetzung<strong id="headerRatio">–</strong>
+    </div>
+  </div>
+
+  <!-- LEFT SIDEBAR -->
+  <div id="leftSidebar"></div>
+
+  <!-- CANVAS -->
+  <div id="canvasWrap">
+    <canvas id="mainCanvas"></canvas>
+  </div>
+
+  <!-- RIGHT SIDEBAR -->
+  <div id="rightSidebar"></div>
+
+  <!-- GAUGE -->
+  <div id="gaugeWrap">
+    <canvas id="gaugeCanvas" width="280" height="170"></canvas>
+  </div>
+
+  <!-- INFO BAR -->
+  <div id="infoBar"></div>
+
+</div>
+
+<script type="module" src="app.js"></script>
+
+</body>
+</html>
