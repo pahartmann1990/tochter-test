@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VOIDHAVEN – Prototyp</title>
+<style>
+  :root { --bg:#05070d; --panel:rgba(14,20,34,.92); --line:#24314d; --txt:#d7e3ff; --dim:#7f8fb3; --acc:#4fc3f7; --warn:#ff7043; --ok:#81c784; }
+  * { box-sizing:border-box; }
+  html,body { margin:0; height:100%; overflow:hidden; background:var(--bg); color:var(--txt); font:13px/1.35 system-ui,Segoe UI,Roboto,sans-serif; }
+  canvas { display:block; position:fixed; inset:0; }
+  #top { position:fixed; top:0; left:0; right:0; height:38px; display:flex; gap:14px; align-items:center; padding:0 12px; background:var(--panel); border-bottom:1px solid var(--line); z-index:5; white-space:nowrap; overflow-x:auto; }
+  #top .r b { color:#fff; } #top .low b { color:var(--warn); }
+  #modes { position:fixed; top:46px; left:10px; display:flex; gap:6px; z-index:5; }
+  button { background:#18223a; color:var(--txt); border:1px solid var(--line); border-radius:6px; padding:6px 10px; cursor:pointer; font:inherit; }
+  button:hover { border-color:var(--acc); } button.on { background:#1d3d5c; border-color:var(--acc); color:#fff; }
+  button:disabled { opacity:.45; cursor:default; }
+  #side { position:fixed; top:38px; right:0; bottom:0; width:310px; background:var(--panel); border-left:1px solid var(--line); padding:10px; overflow-y:auto; z-index:5; }
+  #side h3 { margin:12px 0 6px; font-size:13px; color:var(--acc); text-transform:uppercase; letter-spacing:.06em; }
+  .pal { display:grid; grid-template-columns:1fr 1fr; gap:5px; }
+  .pal button { text-align:left; padding:5px 7px; font-size:12px; }
+  .pal button small { display:block; color:var(--dim); font-size:10.5px; }
+  .sw { display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:5px; vertical-align:-1px; }
+  .desc { color:var(--dim); font-size:12px; margin-top:6px; min-height:32px; }
+  table.st { width:100%; border-collapse:collapse; font-size:12px; } table.st td { padding:2px 0; } table.st td:last-child { text-align:right; color:#fff; }
+  .crew { border:1px solid var(--line); border-radius:6px; padding:5px 7px; margin-bottom:5px; font-size:12px; }
+  .crew .h { display:flex; justify-content:space-between; } .crew .t { color:var(--dim); font-size:11px; }
+  .bar { height:4px; background:#202a40; border-radius:2px; margin-top:3px; overflow:hidden; } .bar i { display:block; height:100%; }
+  #log { position:fixed; left:10px; bottom:10px; width:min(460px,calc(100% - 340px)); z-index:5; pointer-events:none; }
+  #log div { background:rgba(10,14,24,.8); border-left:3px solid var(--acc); padding:4px 8px; margin-top:3px; border-radius:3px; }
+  #station, #help { position:fixed; left:50%; top:50%; transform:translate(-50%,-50%); background:var(--panel); border:1px solid var(--acc); border-radius:10px; padding:16px 18px; z-index:10; width:min(460px,92vw); max-height:86vh; overflow-y:auto; }
+  #station .row { display:flex; justify-content:space-between; align-items:center; margin:5px 0; gap:8px; }
+  .hidden { display:none; }
+  kbd { background:#1b2640; border:1px solid var(--line); border-radius:3px; padding:0 4px; font-size:11px; }
+  #help h2 { margin:0 0 8px; color:var(--acc); } #help li { margin:3px 0; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="top"></div>
+<div id="modes">
+  <button data-mode="build">🔧 Außenbau <kbd>B</kbd></button>
+  <button data-mode="fly">🚀 Flug <kbd>F</kbd></button>
+  <button data-mode="inside">🏠 Innen <kbd>I</kbd></button>
+  <button id="helpBtn">❔</button>
+</div>
+<div id="side">
+  <div id="palette"></div>
+  <div id="desc" class="desc"></div>
+  <div id="info"></div>
+</div>
+<div id="log"></div>
+
+<div id="station" class="hidden">
+  <h2 style="margin:0 0 6px;color:var(--acc)">🛰 Handelsstation „Kepler-Ring"</h2>
+  <div id="stInfo" class="desc"></div>
+  <h3 style="color:var(--acc);font-size:12px">Verkaufen</h3>
+  <div class="row"><span>Eisen (2 Cr/Stk)</span><button data-act="sell:eisen">Alles verkaufen</button></div>
+  <div class="row"><span>Titan (5 Cr/Stk)</span><button data-act="sell:titan">Alles verkaufen</button></div>
+  <div class="row"><span>Eis (1 Cr/Stk)</span><button data-act="sell:eis">Alles verkaufen</button></div>
+  <h3 style="color:var(--acc);font-size:12px">Kaufen</h3>
+  <div class="row"><span>20 Eisen – 50 Cr</span><button data-act="buy:eisen">Kaufen</button></div>
+  <div class="row"><span>20 Eis – 30 Cr</span><button data-act="buy:eis">Kaufen</button></div>
+  <div class="row"><span>30 Nahrung – 40 Cr</span><button data-act="buy:nahrung">Kaufen</button></div>
+  <div class="row"><span>Schiff reparieren (Eisen)</span><button data-act="repair">Reparieren</button></div>
+  <h3 style="color:var(--acc);font-size:12px">Crew anheuern</h3>
+  <div class="row"><span>👤 Mensch – 120 Cr</span><button data-act="hire:human">Anheuern</button></div>
+  <div class="row"><span>🤖 Roboter – 160 Cr</span><button data-act="hire:robot">Anheuern</button></div>
+  <div style="text-align:right;margin-top:10px"><button data-act="close">Schließen <kbd>T</kbd></button></div>
+</div>
+
+<div id="help">
+  <h2>🚀 VOIDHAVEN – Prototyp</h2>
+  <p>Baue dein Schiff aus Blöcken, sammle Ressourcen und halte deine Crew am Leben.</p>
+  <ul>
+    <li><b>🔧 Außenbau (B):</b> Blöcke an das Schiff setzen (Linksklick), entfernen (Rechtsklick). Spiel pausiert. <i>Hülle</i> erzeugt Innenraum, <i>Panzer</i> nicht.</li>
+    <li><b>🚀 Flug (F):</b> <kbd>W</kbd>/<kbd>S</kbd> Schub, <kbd>A</kbd>/<kbd>D</kbd> drehen, <kbd>Leertaste</kbd> bremsen, <b>Maus halten</b> = Geschütze feuern, Mausrad = Zoom. Asteroiden zerschießen → der <i>Traktorstrahl</i> zieht die Brocken ein. An der Station <kbd>T</kbd> drücken.</li>
+    <li><b>🏠 Innen (I):</b> Module in die Stockwerke setzen. <i>Lifte</i> übereinander verbinden Etagen. Die Crew sucht sich selbst Arbeit, Essen und Schlaf. Das Schiff fliegt währenddessen per Autopilot weiter.</li>
+    <li><b>⚠ Alarm:</b> Kommen Piraten, rennt die Crew zu den <i>Geschützstationen</i> – besetzte Stationen erhöhen die Feuerrate, aber Hydroponik &amp; Co. stehen dann still!</li>
+    <li>Menschen brauchen O₂, Nahrung, Schlaf, Moral. Roboter brauchen Strom (Ladestation). Eis → Wasser → O₂ über die Elektrolyse.</li>
+  </ul>
+  <div style="text-align:right"><button id="helpClose">Los geht's!</button></div>
+</div>
+<script src="game.js"></script>
+</body>
+</html>

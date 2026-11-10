@@ -170,3 +170,11 @@ gear-simulator/
 ## Lizenz
 
 MIT — frei verwendbar.
+
+---
+
+## 🚀 Neu: VOIDHAVEN – Raumschiff-Spielprototyp
+
+Im Ordner [`raumschiff/`](raumschiff/) liegt ein spielbarer Browser-Prototyp (Block-Raumschiffbau + Crew-/Lebenserhaltungs-Simulation)
+sowie das ausführliche Konzeptdokument [`raumschiff/KONZEPT.md`](raumschiff/KONZEPT.md).
+Starten: `raumschiff/index.html` im Browser öffnen.
