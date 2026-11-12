@@ -1,0 +1,13 @@
+{
+  "startbudget_eur": 0,
+  "steuer_ruecklage": 0.30,
+  "aufteilung_nach_steuer": {
+    "reinvestition": 0.40,
+    "familie": 0.40,
+    "gemeinwohl": 0.10,
+    "notreserve": 0.10
+  },
+  "max_anteil_pro_projekt": 0.20,
+  "stop_loss_projekt": 0.50,
+  "gesamt_verlustgrenze": 0.30
+}
