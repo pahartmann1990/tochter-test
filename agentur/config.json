@@ -1,13 +1,15 @@
 {
   "startbudget_eur": 0,
-  "steuer_ruecklage": 0.30,
-  "aufteilung_nach_steuer": {
-    "reinvestition": 0.40,
-    "familie": 0.40,
-    "gemeinwohl": 0.10,
-    "notreserve": 0.10
-  },
+  "monatskosten_eur": 50,
+  "steuer_ruecklage": 0.35,
+  "notreserve_anteil": 0.15,
+  "notreserve_ziel_monate": 6,
+  "familie_staffel": [[0, 0.40], [10000, 0.20], [20000, 0.10]],
+  "familie_max_monat": 6000,
+  "reinvest_max_anteil": 0.30,
+  "reinvest_bedarf_monat": 50,
+  "gemeinwohl_anteil": 0.10,
   "max_anteil_pro_projekt": 0.20,
-  "stop_loss_projekt": 0.50,
+  "stop_loss_tage": 60,
   "gesamt_verlustgrenze": 0.30
 }

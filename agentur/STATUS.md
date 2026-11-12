@@ -4,9 +4,10 @@
 **Stand:** 2026-11-12
 
 ## Nächste Aufgaben (Agenten)
-- [ ] Marktforscher: 10 konkrete Produktideen für Phase 1 mit Begründung
-- [ ] Produzent: erstes digitales Produkt als Prototyp
+- [ ] M11: 10 konkrete Produkt-/Dienstleistungsideen mit Zielgruppe, Preis, Aufwand
+- [ ] P21: Demo-Webseite für eine Branche als Referenz
 
-## Wartet auf Patrick (Freigaben)
+## Wartet auf den Inhaber (Freigaben)
+- [ ] Privates Repo anlegen und Bescheid geben
 - [ ] Phase-0-Checkliste in `STARTPLAN.md`
-- [ ] Startbudget in `config.json` eintragen
+- [ ] Startbudget in `config.json`

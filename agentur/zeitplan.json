@@ -1,0 +1,13 @@
+{
+  "_hinweis": "Sitzungen pro Tag legt der Inhaber fest. G01 darf 'agenten' anpassen.",
+  "sitzungen_pro_tag": 2,
+  "uhrzeiten": ["10:17", "19:43"],
+  "max_subagenten_pro_sitzung": 3,
+  "agenten": {
+    "B41": {"jede_sitzung": true},
+    "Q31": {"jede_sitzung": true},
+    "M11": {"pro_tag": 1},
+    "P21": {"pro_tag": 1},
+    "V51": {"pro_woche": 1, "aktiv": false}
+  }
+}
