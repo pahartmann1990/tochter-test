@@ -1,6 +1,6 @@
 # Status
 
-**Phase:** 0 – Grundlagen
+**Phase:** T – Testphase (0 € Budget, kein Verkauf)
 **Stand:** 2026-11-12
 
 ## Nächste Aufgaben (Agenten)
@@ -10,4 +10,4 @@
 ## Wartet auf den Inhaber (Freigaben)
 - [ ] Privates Repo anlegen und Bescheid geben
 - [ ] Phase-0-Checkliste in `STARTPLAN.md`
-- [ ] Startbudget in `config.json`
+- [x] Startbudget: 0 €

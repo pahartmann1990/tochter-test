@@ -19,7 +19,9 @@ Die Agenten erledigen geschätzt 70–80 % der Arbeit (Entwurf, Bau, Texte, Ange
 Der Inhaber übernimmt, was einen Menschen braucht: Erstgespräch, Vertrauen, Unterschrift –
 ein paar Stunden pro Woche. Mit jedem Wartungskunden wächst der feste Sockel.
 
-## Phase 0 – Grundlagen (Inhaber, 1–2 Wochen)
+## Phase T – Testphase ohne Gewerbe (siehe `TESTPHASE.md`)
+
+## Phase 0 – Grundlagen (erst am Umschaltpunkt)
 - [ ] Neues **privates** GitHub-Repo anlegen, Projekt umziehen
 - [ ] Gewerbe anmelden (Kleingewerbe, ca. 20–60 €)
 - [ ] ELSTER: Fragebogen zur steuerlichen Erfassung, Kleinunternehmerregelung § 19 UStG

@@ -7,8 +7,8 @@ Später: Ostern, Hochzeit, Geburt, Geschenkboxen, Anhänger, Bausätze (z. B. Mi
 | Weg | Was der Kunde bekommt | Aufwand rechtlich |
 |---|---|---|
 | A – Digital | personalisierte STL-Datei zum Selberdrucken | gering |
-| B – Gedruckt ohne Elektronik | Partnerdrucker druckt und versendet | mittel: Verpackungsgesetz (LUCID), Produktsicherheit (GPSR) |
-| C – Mit Elektronik/Batterie | fertiges Leuchtprodukt | hoch: ElektroG (stiftung ear), Batteriegesetz, CE |
+| B – Gedruckt über Partner | Partner druckt, verpackt, versendet | gering, **wenn der Partner der Verkäufer ist** und der Inhaber nur Provision bekommt. Verkauft der Inhaber selbst und der Partner versendet nur, ist der Inhaber verantwortlich (LUCID-Anmeldung, kostenlos). |
+| C – Licht | Anleitung + Hinweis auf fertiges LED-Teelicht zum Selberkaufen | gering (Affiliate-Link nur mit Gewerbe und Kennzeichnung) |
 
 Reihenfolge: A → B → C.
 
@@ -16,5 +16,6 @@ Reihenfolge: A → B → C.
 Online-Generator im Browser (wie der Zahnrad-Rechner): Name eingeben → Vorschau → Datei.
 Verkauf zuerst über Etsy/Cults3D/Printables, später eigener Shop.
 
-## Zeitkritisch
-Heute 12.11. – Weihnachten in 6 Wochen. Für A reicht die Zeit, wenn das Modell diese Woche kommt.
+## Name
+„Meine kleine Welt – Generator“ auf der eigenen Webseite (baut der Inhaber mit einer anderen KI).
+Weihnachten 2026 ist ein Test, kein Muss. Ablauf siehe `TESTPHASE.md`.
